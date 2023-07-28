@@ -181,7 +181,8 @@ function onClickExecute() {
   var loadingImg = document.getElementById("loadingimg");
   loadingImg.hidden = false;
   //   combineAndSortTiles();
-  fetch("http://localhost:3000/isWinningHand", {
+  fetch("https://mj-solver-api.onrender.com/isWinningHand", {
+    // fetch("http://localhost:3000/isWinningHand", {
     method: "POST",
     body: JSON.stringify(selectedTiles),
     headers: {
