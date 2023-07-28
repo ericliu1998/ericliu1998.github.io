@@ -179,7 +179,7 @@ function onClickExecute() {
   document.getElementById("WinningTiles").innerHTML = "";
   document.getElementById("isWinning").innerHTML = "";
   //   combineAndSortTiles();
-  fetch("http://localhost:3000/isWinningHand", {
+  fetch("https://mj-solver-api.onrender.com/isWinningHand", {
     method: "POST",
     body: JSON.stringify(selectedTiles),
     headers: {
