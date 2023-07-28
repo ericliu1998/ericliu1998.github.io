@@ -178,8 +178,10 @@ function onClickDelete() {
 function onClickExecute() {
   document.getElementById("WinningTiles").innerHTML = "";
   document.getElementById("isWinning").innerHTML = "";
+  var loadingImg = document.getElementById("loadingimg");
+  loadingImg.hidden = false;
   //   combineAndSortTiles();
-  fetch("https://mj-solver-api.onrender.com/isWinningHand", {
+  fetch("http://localhost:3000/isWinningHand", {
     method: "POST",
     body: JSON.stringify(selectedTiles),
     headers: {
@@ -200,6 +202,9 @@ function onClickExecute() {
         console.log("is object");
         updateWinningTilesView(json);
       }
+    })
+    .finally(() => {
+      loadingImg.hidden = true;
     });
 }
 
