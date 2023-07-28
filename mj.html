@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML 5 Boilerplate</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="ms-4 mt-4">
+    <!-- <span class="border"> -->
+    <ul class="list-group list-group-horizontal">
+      <li
+        class="list-group-item p-2"
+        id="dot1"
+        onclick="addTileToLabel({suit:'dot', value: 1})"
+        name="dot1"
+      >
+        <!-- &#x1F007; -->
+        <img src="mahjong\tiles\dot1.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="dot2"
+        onclick="addTileToLabel({suit:'dot', value: 2})"
+        name="&#x1F008;"
+      >
+        <!-- &#x1F008; -->
+        <img src="mahjong\tiles\dot2.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="dot3"
+        onclick="addTileToLabel({suit:'dot', value: 3})"
+      >
+        <!-- &#x1F009; -->
+        <img src="mahjong\tiles\dot3.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="dot4"
+        onclick="addTileToLabel({suit:'dot', value: 4})"
+      >
+        <!-- &#x1F00A; -->
+        <img src="mahjong\tiles\dot4.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="dot5"
+        onclick="addTileToLabel({suit:'dot', value: 5})"
+      >
+        <!-- &#x1F00B; -->
+        <img src="mahjong\tiles\dot5.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="dot6"
+        onclick="addTileToLabel({suit:'dot', value: 6})"
+      >
+        <!-- &#x1F00C; -->
+        <img src="mahjong\tiles\dot6.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="dot7"
+        onclick="addTileToLabel({suit:'dot', value: 7})"
+      >
+        <!-- &#x1F00D; -->
+        <img src="mahjong\tiles\dot7.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="dot8"
+        onclick="addTileToLabel({suit:'dot', value: 8})"
+      >
+        <!-- &#x1F00E; -->
+        <img src="mahjong\tiles\dot8.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="dot9"
+        onclick="addTileToLabel({suit:'dot', value: 9})"
+      >
+        <!-- &#x1F00F; -->
+        <img src="mahjong\tiles\dot9.png" alt="..." height="65" />
+      </li>
+    </ul>
+
+    <ul class="list-group list-group-horizontal">
+      <li
+        class="list-group-item p-2"
+        id="bamboo1"
+        onclick="addTileToLabel({suit:'bamboo', value: 1})"
+      >
+        <!-- &#x1F010; -->
+        <img src="mahjong\tiles\bamboo1.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="bamboo2"
+        onclick="addTileToLabel({suit:'bamboo', value: 2})"
+      >
+        <!-- &#x1F011; -->
+        <img src="mahjong\tiles\bamboo2.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="bamboo3"
+        onclick="addTileToLabel({suit:'bamboo', value: 3})"
+      >
+        <!-- &#x1F012; -->
+        <img src="mahjong\tiles\bamboo3.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="bamboo4"
+        onclick="addTileToLabel({suit:'bamboo', value: 4})"
+      >
+        <!-- &#x1F013; -->
+        <img src="mahjong\tiles\bamboo4.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="bamboo5"
+        onclick="addTileToLabel({suit:'bamboo', value: 5})"
+      >
+        <!-- &#x1F014; -->
+        <img src="mahjong\tiles\bamboo5.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="bamboo6"
+        onclick="addTileToLabel({suit:'bamboo', value: 6})"
+      >
+        <!-- &#x1F015; -->
+        <img src="mahjong\tiles\bamboo6.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="bamboo7"
+        onclick="addTileToLabel({suit:'bamboo', value: 7})"
+      >
+        <!-- &#x1F016; -->
+        <img src="mahjong\tiles\bamboo7.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="bamboo8"
+        onclick="addTileToLabel({suit:'bamboo', value: 8})"
+      >
+        <!-- &#x1F017; -->
+        <img src="mahjong\tiles\bamboo8.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="bamboo9"
+        onclick="addTileToLabel({suit:'bamboo', value: 9})"
+      >
+        <!-- &#x1F018; -->
+        <img src="mahjong\tiles\bamboo9.png" alt="..." height="65" />
+      </li>
+    </ul>
+
+    <ul class="list-group list-group-horizontal">
+      <li
+        class="list-group-item p-2"
+        id="character1"
+        onclick="addTileToLabel({suit:'character', value: 1})"
+      >
+        <!-- &#x1F019; -->
+        <img src="mahjong\tiles\character1.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="character2"
+        onclick="addTileToLabel({suit:'character', value: 2})"
+      >
+        <!-- &#x1F01A; -->
+        <img src="mahjong\tiles\character2.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="character3"
+        onclick="addTileToLabel({suit:'character', value: 3})"
+      >
+        <!-- &#x1F01B; -->
+        <img src="mahjong\tiles\character3.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="character4"
+        onclick="addTileToLabel({suit:'character', value: 4})"
+      >
+        <!-- &#x1F01C; -->
+        <img src="mahjong\tiles\character4.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="character5"
+        onclick="addTileToLabel({suit:'character', value: 5})"
+      >
+        <!-- &#x1F01D; -->
+        <img src="mahjong\tiles\character5.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="character6"
+        onclick="addTileToLabel({suit:'character', value: 6})"
+      >
+        <!-- &#x1F01E; -->
+        <img src="mahjong\tiles\character6.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="character7"
+        onclick="addTileToLabel({suit:'character', value: 7})"
+      >
+        <!-- &#x1F01F; -->
+        <img src="mahjong\tiles\character7.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="character8"
+        onclick="addTileToLabel({suit:'character', value: 8})"
+      >
+        <!-- &#x1F020; -->
+        <img src="mahjong\tiles\character8.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="character9"
+        onclick="addTileToLabel({suit:'character', value: 9})"
+      >
+        <!-- &#x1F021; -->
+        <img src="mahjong\tiles\character9.png" alt="..." height="65" />
+      </li>
+    </ul>
+
+    <ul class="list-group list-group-horizontal">
+      <li
+        class="list-group-item p-2"
+        id="honor1"
+        onclick="addTileToLabel({suit:'honor', value: 1})"
+      >
+        <!-- &#x1F000; -->
+        <img src="mahjong\tiles\honor1.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="honor2"
+        onclick="addTileToLabel({suit:'honor', value: 2})"
+      >
+        <!-- &#x1F001; -->
+        <img src="mahjong\tiles\honor2.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="honor3"
+        onclick="addTileToLabel({suit:'honor', value: 3})"
+      >
+        <!-- &#x1F002; -->
+        <img src="mahjong\tiles\honor3.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="honor4"
+        onclick="addTileToLabel({suit:'honor', value: 4})"
+      >
+        <!-- &#x1F003; -->
+        <img src="mahjong\tiles\honor4.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="honor5"
+        onclick="addTileToLabel({suit:'honor', value: 5})"
+      >
+        <!-- &#x1F004; -->
+        <img src="mahjong\tiles\honor5.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="honor6"
+        onclick="addTileToLabel({suit:'honor', value: 6})"
+      >
+        <!-- &#x1F005; -->
+        <img src="mahjong\tiles\honor6.png" alt="..." height="65" />
+      </li>
+      <li
+        class="list-group-item p-2"
+        id="honor7"
+        onclick="addTileToLabel({suit:'honor', value: 7})"
+      >
+        <!-- &#x1F006; -->
+        <img src="mahjong\tiles\honor7.png" alt="..." height="65" />
+      </li>
+
+      <li
+        class="list-group-item p-2"
+        id="wong"
+        onclick="addTileToLabel({suit:'honor', value: 9})"
+      >
+        <!-- &#x1F006; -->
+        <img src="mahjong\tiles\honor9.png" alt="..." height="65" />
+      </li>
+    </ul>
+    <!-- </span> -->
+
+    <div class="container">
+      <div class="row">
+        <div class="col-2">
+          <button
+            onclick="onClickDelete()"
+            type="button"
+            class="btn btn-danger"
+          >
+            Delete
+          </button>
+        </div>
+        <!-- <button onclick="onClickSortTiles()" type="button" class="btn btn-warning">
+        Sort Tiles
+      </button> -->
+        <div class="col-2">
+          <button
+            id="executeButton"
+            onclick="onClickExecute()"
+            type="button"
+            class="btn btn-primary"
+            disabled
+          >
+            Execute
+          </button>
+        </div>
+        <div class="col-2">
+          <p id="tileCount">0</p>
+        </div>
+        <div class="col-2">
+          <p id="isWinning"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-0">
+      <!-- <label class="form-label">:</label> -->
+      <label class="mb-0" id="selectedTilesLabel" class="form-label"></label>
+    </div>
+    <div class="mb-0">
+      <!-- <label class="form-label">:</label> -->
+      <label class="mb-0" id="sortedTilesLabel" class="form-label"></label>
+    </div>
+    <div class="mb-0">
+      <!-- <label class="form-label">:</label> -->
+      <label class="mb-0" id="WinningTiles" class="form-label"></label>
+    </div>
+
+    <script src="mj.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+  </body>
+</html>
