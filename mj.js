@@ -220,7 +220,7 @@ function updateWinningTilesView(tiles) {
     tiles.forEach((e) => {
       const element = document.getElementById("WinningTiles");
       const img = document.createElement("img");
-      img.src = `mahjong\\tiles\\${e.suit}${e.value}.png`;
+      img.src = `images\\mahjong\\tiles\\${e.suit}${e.value}.png`;
       img.height = "75";
       element.append(img);
     });
@@ -241,7 +241,7 @@ function updateSelectedTilesView() {
   selectedTiles.forEach((e) => {
     const element = document.getElementById("selectedTilesLabel");
     const img = document.createElement("img");
-    img.src = `mahjong\\tiles\\${e.suit}${e.value}.png`;
+    img.src = `images\\mahjong\\tiles\\${e.suit}${e.value}.png`;
     img.height = "65";
     element.append(img);
   });
@@ -254,7 +254,7 @@ function updateSortedTilesView() {
     // selectedTilesLabel.innerHTML += nameToUniCode[e];
     const element = document.getElementById("sortedTilesLabel");
     const img = document.createElement("img");
-    img.src = `mahjong\\tiles\\${e.suit}${e.value}.png`;
+    img.src = `images\\mahjong\\tiles\\${e.suit}${e.value}.png`;
     img.height = "65";
     element.append(img);
   });
