@@ -16,22 +16,68 @@
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="helpers.js"></script>
-    <div class="m-3" style="width: 500px">
-      <label class="form-label" id="thisLabel">Enter board as one string</label>
-      <input class="form-control" id="boardInput" maxlength="16" />
-      <textarea
-        class="form-control"
-        id="formattedBoardInput"
-        rows="4"
-        style="font-family: consolas, garamond, serif"
-        disabled
-      ></textarea>
 
-      <button onclick="onClickExecute()" class="btn btn-primary">
-        Execute
-      </button>
+    <div class="container text-center mt-5">
+      <h1>Word Hunt Solver</h1>
+      <div class="text-center" style="width: 100px"></div>
+      <div></div>
     </div>
-    <div class="m-3" id="answers"></div>
+
+    <div class="container text-center">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col">
+          <label class="form-label" id="thisLabel"
+            >Enter board as one string</label
+          >
+        </div>
+        <div class="col"></div>
+      </div>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col">
+          <input class="form-control" id="boardInput" maxlength="16" />
+        </div>
+        <div class="col"></div>
+      </div>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col">
+          <textarea
+            class="form-control"
+            id="formattedBoardInput"
+            rows="4"
+            style="font-family: consolas, garamond, serif"
+            disabled
+          ></textarea>
+        </div>
+        <div class="col"></div>
+      </div>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col">
+          <button
+            onclick="onClickExecute()"
+            class="btn btn-primary"
+            id="executeBut"
+            disabled
+          >
+            Execute
+          </button>
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+    <div class="container text-center mt-5">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Answers</th>
+          </tr>
+        </thead>
+        <tbody id="answers"></tbody>
+      </table>
+    </div>
     <script src="solver.js"></script>
   </body>
 </html>

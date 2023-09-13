@@ -142,7 +142,7 @@ function convertBoardToArry(stringBoard) {
   }
   return retArr;
 }
-
+var answerBuffer = [];
 function getWords(board, x, y, word) {
   board.mark(x, y);
   // console.log(word);
@@ -151,8 +151,16 @@ function getWords(board, x, y, word) {
   if (word.length >= 3 && dictSet.has(word.toUpperCase())) {
     // console.log(`found word - ${word}`);
     if (word.length > 4) {
-      console.log(`found word - ${word}`);
-      $("#answers").append(`<p>${word}</p>`);
+      // console.log(`found word - ${word}`);
+      // $("#answers").append(`<p>${word}</p>`);
+      answerBuffer.push(`${word}`);
+      if (answerBuffer.length == 3) {
+        $("#answers").append(
+          `<tr><td>${answerBuffer[0]}</td><td>${answerBuffer[1]}</td><td>${answerBuffer[2]}</td></tr>`
+        );
+        console.log(answerBuffer);
+        answerBuffer = [];
+      }
     }
   }
 
@@ -176,7 +184,6 @@ function getWords(board, x, y, word) {
 function onClickExecute() {
   // var stringBoard = "YNHMEIDFBPTFEUSA";
   var stringBoard = $("#boardInput").val().toUpperCase();
-  console.log(stringBoard);
 
   var boardTiles = convertBoardToArry(stringBoard);
 
@@ -188,8 +195,8 @@ function onClickExecute() {
   // ];
 
   var board = new Board(boardTiles);
-  console.log(`rows - ${board.rowsY}`);
-  console.log(`cols - ${board.colsX}`);
+  // console.log(`rows - ${board.rowsY}`);
+  // console.log(`cols - ${board.colsX}`);
   board.printBoard();
 
   for (let i = 0; i < board.rowsY; i++) {
@@ -198,11 +205,18 @@ function onClickExecute() {
       getWords(board, j, i, board.getLetter(j, i));
     }
   }
+
+  var appendLastAnswer = "<tr>";
+  for (let i = 0; i < answerBuffer.length; i++) {
+    appendLastAnswer += `<td>${answerBuffer[i]}</td>`;
+  }
+  appendLastAnswer += "</tr>";
+
+  $("#answers").append(appendLastAnswer);
+  console.log(answerBuffer);
 }
 
 $("#boardInput").on("input", function () {
-  // Print entered value in a div box
-  // console.log($(this).val().replaceAll(" ", ""));
   $("#formattedBoardInput").val(
     $(this)
       .val()
@@ -212,25 +226,12 @@ $("#boardInput").on("input", function () {
       // .replace(/\W/gi, "")
       .replace(/(.{8})/g, "$1\n")
   );
+
   if ($(this).val().length == 16) {
-    console.log("is 16 ");
-  } else if ($(this).val().length > 16) {
-    console.log("not 16 ");
-    // $(this).val($(this).val().substr(0, 15));
-    // console.log($(this).val().substr(0, 15));
+    // console.log("is 16 ");
+    $("#executeBut").prop("disabled", false);
+  } else if ($(this).val().length < 16) {
+    // console.log("less than 16 ");
+    $("#executeBut").prop("disabled", true);
   }
 });
-
-// $("#boardInput").on("keypress change", function () {
-//   $(this).val(function (index, value) {
-//     // console.log(value.length);
-//     return value
-//       .toUpperCase()
-//       .replace(/\W/gi, "")
-//       .replace(/(.{4})/g, "$1 ");
-//   });
-// });
-
-// function onchangeText() {
-//   console.log("change");
-// }
