@@ -36,7 +36,12 @@
       <div class="row">
         <div class="col"></div>
         <div class="col">
-          <input class="form-control" id="boardInput" maxlength="16" />
+          <input
+            class="form-control"
+            id="boardInput"
+            maxlength="16"
+            style="min-width: 200px"
+          />
         </div>
         <div class="col"></div>
       </div>
@@ -49,6 +54,7 @@
             rows="4"
             style="font-family: consolas, garamond, serif"
             disabled
+            cols="50"
           ></textarea>
         </div>
         <div class="col"></div>
@@ -57,7 +63,7 @@
         <div class="col"></div>
         <div class="col">
           <button
-            onclick="onClickExecute()"
+            onclick="onClickExecute2()"
             class="btn btn-primary"
             id="executeBut"
             disabled
@@ -65,7 +71,9 @@
             Execute
           </button>
         </div>
-        <div class="col"></div>
+        <div class="col text-start">
+          <img hidden id="loadingimg" src="loading.gif" height="30px" alt="" />
+        </div>
       </div>
     </div>
     <div class="container text-center mt-5">

@@ -124,9 +124,6 @@ var simpleDir = [
 
 var dictSet = new Set(dictArr);
 
-// console.log(dictSet.has("LEAN"));
-// console.log(dictSet.has("LEANN"));
-
 // var sx = 3;
 // var sy = 0;
 // getWords(board, sx, sy, board.getLetter(sx, sy));
@@ -172,14 +169,19 @@ function getWords(board, x, y, word) {
       getWords(board, dx, dy, word + board.getLetter(dx, dy));
     }
   }
-  //   dx = x + 0;
-  //   dy = y + 1;
-  //   //   console.log(`before get words- ${dx} - ${dy}`);
-  //   //   console.log(board.board[dy][dx].letter);
-  //   if (board.canGo(dx, dy)) {
-  //     getWords(board, dx, dy, (word += board.getLetter(dx, dy)));
-  //   }
+
   board.unmark(x, y);
+}
+
+function onClickExecute2() {
+  $("#loadingimg").prop("hidden", false);
+
+  $("#answers tr").remove();
+  answerBuffer = [];
+
+  return new Promise(function () {
+    setTimeout(onClickExecute, 100);
+  });
 }
 function onClickExecute() {
   // var stringBoard = "YNHMEIDFBPTFEUSA";
@@ -213,7 +215,10 @@ function onClickExecute() {
   appendLastAnswer += "</tr>";
 
   $("#answers").append(appendLastAnswer);
+
   console.log(answerBuffer);
+
+  $("#loadingimg").prop("hidden", true);
 }
 
 $("#boardInput").on("input", function () {
