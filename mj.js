@@ -174,7 +174,10 @@ function onClickDelete() {
   document.getElementById("isWinning").innerHTML = "";
   document.getElementById("WinningTiles").innerHTML = "";
 }
-
+function onClickTest() {
+  console.log(selectedTiles);
+  console.log(sortedTiles);
+}
 function onClickExecute() {
   document.getElementById("WinningTiles").innerHTML = "";
   document.getElementById("isWinning").innerHTML = "";
