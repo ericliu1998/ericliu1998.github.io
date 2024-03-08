@@ -9,4 +9,5 @@ label {
 .list-group-item {
   width: 75px;
   text-align: center;
+  border: 0 !important;
 }
