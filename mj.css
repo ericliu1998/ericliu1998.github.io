@@ -2,6 +2,11 @@ li,
 label {
   font-size: 60px;
 }
-.list-group-item {
+.list-group-item img {
   cursor: pointer;
+}
+
+.list-group-item {
+  width: 75px;
+  text-align: center;
 }
