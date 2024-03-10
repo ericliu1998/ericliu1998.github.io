@@ -1,3 +1,6 @@
+console.log("test env");
+console.log($os.getenv("TEST"));
+
 var selectedTiles = [];
 var sortedTiles = [];
 var unicodeToArray2 = {
