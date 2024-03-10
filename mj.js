@@ -1,4 +1,5 @@
 console.log("test env");
+console.log(process.env.TEST);
 console.log($os.getenv("TEST"));
 
 var selectedTiles = [];
