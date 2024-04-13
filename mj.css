@@ -56,3 +56,6 @@ img {
 .tooltipstext ul {
   padding-left: 18px;
 }
+#tabIcon {
+  border-radius: 50%;
+}
