@@ -189,26 +189,34 @@ function onClickExecute() {
   loadingImg.hidden = false;
   //   combineAndSortTiles();
   fetch("https://3.141.24.147.nip.io/isWinningHand", {
-    // fetch("http://localhost:3000/isWinningHand", {
+    // fetch("http://localhost:3000/api/isWinningHand", {
     method: "POST",
     body: JSON.stringify(selectedTiles),
     headers: {
       "Content-type": "application/json; charset=UTF-8",
+      publicKey: "4ea90ab6-df29-419d-8e2c-c0f36badd089",
     },
   })
     .then((response) => response.json())
     .then((json) => {
       console.log(json);
       var isWinningPar = document.getElementById("isWinning");
+
+      if (json.status !== "success") {
+        isWinningPar.innerHTML = "Error, api is failing.";
+        return;
+      }
+
       if (selectedTiles.length == 14) {
-        if (json) {
+        if (json.contents) {
           isWinningPar.innerHTML = "Winning";
         } else {
           isWinningPar.innerHTML = "Losing";
         }
       } else {
         console.log("is object");
-        updateWinningTilesView(json);
+        console.log(json.contents);
+        updateWinningTilesView(json.contents);
       }
     })
     .finally(() => {
