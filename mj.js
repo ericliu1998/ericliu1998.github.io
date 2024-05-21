@@ -179,8 +179,9 @@ function onClickDelete() {
   document.getElementById("WinningTiles").innerHTML = "";
 }
 function onClickTest() {
-  console.log(selectedTiles);
-  console.log(sortedTiles);
+  // console.log(selectedTiles);
+  // console.log(sortedTiles);
+  convertTileDictionaryToInt();
 }
 function onClickExecute() {
   document.getElementById("WinningTiles").innerHTML = "";
@@ -188,10 +189,14 @@ function onClickExecute() {
   var loadingImg = document.getElementById("loadingimg");
   loadingImg.hidden = false;
   //   combineAndSortTiles();
-  fetch("https://3.141.24.147.nip.io/isWinningHand", {
-    // fetch("http://localhost:3000/api/isWinningHand", {
+
+  // var apiUrl = "https://localhost:7190/api/MahjongSolver/SolveHand";
+  var apiUrl =
+    "https://y1uczn9foj.execute-api.us-east-2.amazonaws.com/dev/api/MahjongSolver/SolveHand";
+  var requestBody = { tiles: convertTileDictionaryToInt() };
+  fetch(apiUrl, {
     method: "POST",
-    body: JSON.stringify(selectedTiles),
+    body: JSON.stringify(requestBody),
     headers: {
       "Content-type": "application/json; charset=UTF-8",
       publicKey: "4ea90ab6-df29-419d-8e2c-c0f36badd089",
@@ -202,22 +207,35 @@ function onClickExecute() {
       console.log(json);
       var isWinningPar = document.getElementById("isWinning");
 
-      if (json.status !== "success") {
-        isWinningPar.innerHTML = "Error, api is failing.";
-        return;
-      }
-
-      if (selectedTiles.length == 14) {
-        if (json.contents) {
+      if (json.statusCode == 200001) {
+        if (json.isHandWinning) {
           isWinningPar.innerHTML = "Winning";
         } else {
           isWinningPar.innerHTML = "Losing";
         }
-      } else {
+      } else if (json.statusCode == 200002) {
         console.log("is object");
-        console.log(json.contents);
-        updateWinningTilesView(json.contents);
+        console.log(json.tilesToWin);
+        updateWinningTilesView(json.tilesToWin);
+      } else if (json.statusCode == 200003) {
+        isWinningPar.innerHTML = "Any card will be a winning card";
+      } else if ((json.statusCode == 400001) | (json.statusCode == 400002)) {
+        isWinningPar.innerHTML = json.message;
       }
+
+      // if (selectedTiles.length == 14) {
+      //   if (json.contents) {
+      //     isWinningPar.innerHTML = "Winning";
+      //   } else {
+      //     isWinningPar.innerHTML = "Losing";
+      //   }
+      // } else {
+      //
+      // }
+    })
+    .catch((err) => {
+      console.log("caught it!", err);
+      document.getElementById("isWinning").innerHTML = "Error, api is failing.";
     })
     .finally(() => {
       loadingImg.hidden = true;
@@ -236,12 +254,21 @@ function addTileToLabel(card) {
 
 function updateWinningTilesView(tiles) {
   document.getElementById("WinningTiles").innerHTML = "";
+  findSuit = {
+    1: "dot",
+    2: "bamboo",
+    3: "character",
+    4: "honor",
+  };
   console.log(tiles.length);
   if (tiles.length >= 1) {
     tiles.forEach((e) => {
       const element = document.getElementById("WinningTiles");
       const img = document.createElement("img");
-      img.src = `images\\mahjong\\tiles\\${e.suit}${e.value}.png`;
+      var suitChar = String(e).charAt(0);
+      var numChar = String(e).charAt(1);
+      var suit = findSuit[Number(suitChar)];
+      img.src = `images\\mahjong\\tiles\\${suit}${numChar}.png`;
       img.height = "75";
       element.append(img);
     });
@@ -252,7 +279,7 @@ function updateWinningTilesView(tiles) {
 }
 function updateSelectedTilesView() {
   var executeButton = document.getElementById("executeButton");
-  if (selectedTiles.length == 13 || selectedTiles.length == 14) {
+  if ((selectedTiles.length >= 2) & (selectedTiles.length <= 14)) {
     executeButton.disabled = false;
   } else {
     executeButton.disabled = true;
@@ -333,4 +360,14 @@ function convertTilesToArray() {
     returnVal.push(unicodeToArray[e]);
   });
   return returnVal;
+}
+
+function convertTileDictionaryToInt() {
+  var list = [];
+  conversion = { dot: 10, bamboo: 20, character: 30, honor: 40 };
+  sortedTiles.forEach((e) => {
+    list.push(conversion[e.suit] + e.value);
+  });
+  console.log(JSON.stringify(list));
+  return list;
 }
